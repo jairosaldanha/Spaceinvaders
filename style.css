@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0a0a0a;
+    color: #00ff00;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    cursor: crosshair;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    overflow: hidden;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
+    z-index: 10;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    background-color: transparent;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-shadow: 0 0 5px #00ff00;
+    z-index: 10;
+}
+
+/* Positioning for Score and Files Collected */
+#score, #files-collected {
+    font-size: 0.8em;
+    pointer-events: auto;
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    z-index: 11;
+    padding: 10px;
+}
+
+/* Position Files Collected on the top left */
+#files-collected {
+    top: 0;
+    left: 0;
+}
+
+/* Position Score on the top right, below the mute button */
+#score {
+    top: 40px;
+    right: 0;
+    text-align: right;
+}
+
+/* Style and position the Mute button */
+#mute-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #00ff00;
+    pointer-events: auto;
+    z-index: 12;
+    font-size: 0.8em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#mute-button:active {
+    background-color: rgba(0, 255, 0, 0.6);
+    color: #0a0a0a;
+}
+
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 15;
+}
+
+#message.hidden {
+    display: none;
+}
+
+#mobile-controls {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(10, 10, 10, 0.8);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    pointer-events: auto;
+    z-index: 20;
+}
+
+#mobile-controls.hidden {
+    display: none;
+}
+
+#mobile-controls #movement-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#mobile-controls button {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 255, 0, 0.6);
+    color: #0a0a0a;
+    border: 2px solid #00ff00;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    cursor: pointer;
+    box-shadow: 0 0 5px #00ff00;
+    pointer-events: auto;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-controls button:active {
+    background-color: rgba(10, 10, 10, 0.8);
+    color: #00ff00;
+}
+
+/* Specific styling for direction buttons */
+#mobile-controls button#left-button,
+#mobile-controls button#right-button {
+    font-size: 1.5em;
+}
+
+/* Continue button styling for win message */
+#message button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: rgba(0, 255, 0, 0.6);
+    color: #0a0a0a;
+    border: 2px solid #00ff00;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    cursor: pointer;
+    box-shadow: 0 0 5px #00ff00;
+}
+#message button:active {
+    background-color: rgba(10, 10, 10, 0.8);
+    color: #00ff00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        min-height: initial;
+    }
+    
+    #game-container {
+        width: 100%;
+        height: 100vh;
+        border: none;
+        box-shadow: none;
+        align-items: flex-start;    /* Pin the canvas to the top on mobile so the player stays above the controls */
+    }
+
+    #score, #files-collected {
+        font-size: 0.6em;
+        padding: 5px;
+    }
+    
+    #files-collected {
+        top: 0;
+        left: 0;
+    }
+    
+    #score {
+        top: 30px;
+        right: 0;
+        text-align: right;
+    }
+
+    #mute-button {
+        font-size: 0.6em;
+        padding: 3px 6px;
+        top: 5px;
+        right: 5px;
+    }
+
+    #message {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    #mobile-controls.hidden {
+        display: none;
+    }
+}
+
+/* Ensure desktop doesn't see mobile controls */
+@media (min-width: 769px) {
+    #mobile-controls {
+        display: none !important;
+    }
+    
+    #game-container {
+        height: 100vh;
+        border: 2px solid #00ff00;
+        box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
+    }
+    
+    #score {
+        top: 40px;
+        right: 0;
+        padding: 10px;
+    }
+    
+    #files-collected {
+        top: 0;
+        left: 0;
+        padding: 10px;
+    }
+    
+    #mute-button {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+}

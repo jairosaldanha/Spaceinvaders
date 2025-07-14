@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked System Defense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "./game.js": "./game.js",
+                "./player.js": "./player.js",
+                "./enemy.js": "./enemy.js",
+                "./bullet.js": "./bullet.js",
+                "./powerup.js": "./powerup.js",
+                "./securityFile.js": "./securityFile.js",
+                "./fx.js": "./fx.js",
+                "./audioManager.js": "./audioManager.js",
+                "./inputHandler.js": "./inputHandler.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-overlay">
+            <div id="score">SCORE: 0</div>
+            <div id="files-collected">FILES: 0/3</div>
+            <button id="mute-button">MUTE</button> <!-- Added Mute Button -->
+            <div id="message" class="hidden"></div>
+        </div>
+        <div id="mobile-controls" class="hidden">
+            <!-- Wrap movement buttons in a container -->
+            <div id="movement-controls">
+                <button id="left-button">&lt;</button>
+                <button id="right-button">&gt;</button>
+            </div>
+            <button id="shoot-button">SHOOT</button>
+        </div>
+    </div>
+
+    <!-- Binary Glitch Background Script -->
+    <style>
+        .char {
+            position: fixed;              /* Cover entire viewport */
+            color: #18CC00;               /* Green color */
+            font-family: 'Press Start 2P', monospace; /* Use game font */
+            font-size: 12px;              /* Base size if inline not set */
+            opacity: 0;
+            animation: blink 1s ease-in-out forwards;
+            pointer-events: none;
+            z-index: 0;                   /* Behind game content */
+            user-select: none;
+        }
+        @keyframes blink {
+            0%   { opacity: 0; transform: scale(1); }
+            50%  { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+    </style>
+    <script>
+      const chars = "01<>!$@#%&*abcdefghijklmnopqrstuvwxyz".split("");
+      function createChar() {
+        const char = document.createElement("div");
+        char.classList.add("char");
+        char.textContent = chars[Math.floor(Math.random() * chars.length)];
+        char.style.top = `${Math.random() * 100}vh`;
+        char.style.left = `${Math.random() * 100}vw`;
+        char.style.fontSize = `${Math.random() * 6 + 10}px`; /* 10–16px for readability */
+        char.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`;
+        document.body.appendChild(char);
+        setTimeout(() => {
+          if (char.parentElement) {
+            document.body.removeChild(char);
+          }
+        }, 1500);
+      }
+      for (let i = 0; i < 50; i++) createChar();
+      setInterval(() => {
+        for (let i = 0; i < 5; i++) createChar();
+      }, 200);
+    </script>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
