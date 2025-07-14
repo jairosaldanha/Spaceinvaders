@@ -42,7 +42,7 @@ export default class Enemy {
 
          // Use pixel art sprite
          this.image = new Image();
-         this.image.src = '/asset_enemy_virus.png'; // Use the asset path
+         this.image.src = 'https://github.com/jairosaldanha/Spaceinvaders/blob/4989a0008d1db5b56e7c85c7501c06d7f49ffde0/asset_enemy_virus.png'; // Use the asset path
          this.loaded = false;
          this.image.onload = () => this.loaded = true;
     }
