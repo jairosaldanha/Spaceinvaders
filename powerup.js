@@ -32,11 +32,11 @@ export default class PowerUp {
 
     getImagePathForType(type) {
         switch (type) {
-            case 'shield': return 'https://github.com/jairosaldanha/Spaceinvaders/blob/b366669777faa91de46266189bec772efec74beb/asset_powerup_shield.png';
-            case 'tripleShot': return 'https://github.com/jairosaldanha/Spaceinvaders/blob/b366669777faa91de46266189bec772efec74beb/asset_powerup_tripleshot.png';
-            case 'bomb': return 'https://github.com/jairosaldanha/Spaceinvaders/blob/b366669777faa91de46266189bec772efec74beb/asset_powerup_bomb.png';
-            case 'speedBoost': return 'https://github.com/jairosaldanha/Spaceinvaders/blob/b366669777faa91de46266189bec772efec74beb/asset_powerup_speed.png';
-            case 'freeze': return 'https://github.com/jairosaldanha/Spaceinvaders/blob/b366669777faa91de46266189bec772efec74beb/asset_powerup_freeze.png';
+            case 'shield': return 'asset_powerup_shield.png';
+            case 'tripleShot': return 'asset_powerup_tripleshot.png';
+            case 'bomb': return 'asset_powerup_bomb.png';
+            case 'speedBoost': return 'asset_powerup_speed.png';
+            case 'freeze': return 'asset_powerup_freeze.png';
             default: return ''; // Should not happen
         }
     }
