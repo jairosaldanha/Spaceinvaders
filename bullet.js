@@ -4,15 +4,15 @@ export default class Bullet {
         this.game = game;
         
         // Scale bullet size based on canvas size for proportional appearance
-        const baseWidthPlayer = 5;
+        const baseWidthPlayer = 15;
         const baseHeightPlayer = 15;
         const baseWidthEnemy = 15;
         const baseHeightEnemy = 15;
         const scaleFactor = Math.min(game.width / 800, game.height / 600) * 2; // aumentou 50%;
         
         if (direction === -1) { // Player bullet
-            this.baseWidth = Math.max(baseWidthPlayer * scaleFactor, 8);
-            this.baseHeight = Math.max(baseHeightPlayer * scaleFactor, 10);
+            this.baseWidth = Math.max(baseWidthPlayer * scaleFactor, 16);
+            this.baseHeight = Math.max(baseHeightPlayer * scaleFactor, 20);
         } else { // Enemy bullet
             this.baseWidth = Math.max(baseWidthEnemy * scaleFactor, 8);
             this.baseHeight = Math.max(baseHeightEnemy * scaleFactor, 8);
