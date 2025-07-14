@@ -34,7 +34,7 @@ export default class Player {
 
         // Use pixel art sprite
         this.image = new Image();
-        this.image.src = '/https://github.com/jairosaldanha/Spaceinvaders/blob/ced6d57ee142128b032a0272f78996d179f55f71/asset_player.png'; // Use the asset path
+        this.image.src = 'asset_player.png'; // Use the asset path
         this.loaded = false;
         this.image.onload = () => this.loaded = true;
     }
