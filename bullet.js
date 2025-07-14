@@ -32,7 +32,7 @@ export default class Bullet {
 
          // Use pixel art sprites
          this.image = new Image();
-         this.image.src = direction === -1 ? '/asset_player_bullet.png' : '/asset_enemy_bullet.png'; // Use respective asset paths
+         this.image.src = direction === -1 ? 'https://github.com/jairosaldanha/Spaceinvaders/blob/d89e5b68691360468525f69eb55c729c200b527f/asset_player_bullet.png' : 'https://github.com/jairosaldanha/Spaceinvaders/blob/d89e5b68691360468525f69eb55c729c200b527f/asset_enemy_bullet.png'; // Use respective asset paths
          this.loaded = false;
          this.image.onload = () => {
              this.loaded = true;
