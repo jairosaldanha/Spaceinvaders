@@ -25,7 +25,7 @@ export default class SecurityFile {
 
          // Use pixel art sprite
          this.image = new Image();
-         this.image.src = 'https://github.com/jairosaldanha/Spaceinvaders/blob/8114bf28588adddc6ebfaab20c44f919e816232d/asset_security_file.png'; // Use the asset path
+         this.image.src = 'asset_security_file.png'; // Use the asset path
          this.loaded = false;
          this.image.onload = () => this.loaded = true;
     }
