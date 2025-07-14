@@ -46,7 +46,7 @@ export default class Player {
         
         // On mobile, reserve more bottom space so the ship stays clear of controls
         const isMobileLayout = window.innerWidth <= 768;
-        const bottomMarginRatio = isMobileLayout ? 0.4 : 0.1; // 20% of canvas height on mobile, 10% on desktop
+        const bottomMarginRatio = isMobileLayout ? 0.5 : 0.1; // 20% of canvas height on mobile, 10% on desktop
         const bottomMargin = height * bottomMarginRatio;
         
         // Initial position (before scaling)
