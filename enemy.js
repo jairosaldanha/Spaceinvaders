@@ -9,7 +9,7 @@ export default class Enemy {
         // Scale enemy size based on canvas size for proportional appearance
         const baseSizeX = 40;
         const baseSizeY = 40;
-        const scaleFactor = Math.min(game.width / 800, game.height / 600);
+        const scaleFactor = Math.min(game.width / 800, game.height / 600)*2;
         
         this.width = Math.max(baseSizeX * scaleFactor, 25); // Minimum size
         this.height = Math.max(baseSizeY * scaleFactor, 25);
